@@ -1,16 +1,33 @@
 # bike_app
 
-A new Flutter project.
+Welcome to **bike_app**, a Flutter project that showcases the use of Provider for state management, Shared Preferences for persistent data storage, and other key features.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
+This Flutter project serves as a foundation for a mobile application focused on managing vehicle information. Below, you'll find a brief overview of the key components and technologies used.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### State Management with Provider
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- The project employs the Provider package for efficient state management.
+- `AppProvider` class, extending `ChangeNotifier`, manages the list of vehicles.
+- Vehicle-related UI components dynamically update based on changes in the provider.
+
+### Persistent Data Storage with Shared Preferences
+
+- Shared Preferences is utilized to store and retrieve simple data persistently.
+- Commonly used for storing user preferences or data that needs to persist across app sessions.
+- Example:
+  ```dart
+  // Save data to Shared Preferences
+  void saveUserData(String key, String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(key, value);
+  }
+
+  // Retrieve data from Shared Preferences
+  Future<String?> getUserData(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString(key);
+  }
