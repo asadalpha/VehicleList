@@ -1,5 +1,4 @@
 import 'package:bike_app/UI/card.dart';
-import 'package:bike_app/UI/vehicleformscreen.dart';
 import 'package:bike_app/model/vehicle_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +20,7 @@ class CarScreen extends StatelessWidget {
                   .where((vehicle) => vehicle.type == vehicleType)
                   .toList();
 
-              return ListView.builder(
+              return  carList.isEmpty  ? const Center(child: Text("No Vehices Added")) : ListView.builder(
                 itemCount: carList.length,
                 itemBuilder: (context, index) {
                   Vehicle vehicle = carList[index];
